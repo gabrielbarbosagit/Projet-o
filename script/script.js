@@ -7,3 +7,7 @@ function getAllQuizzes() {
     const promise = axios.get('https://mock-api.driven.com.br/api/vm/buzzquizz/quizzes');
     promise.then(response => allQuizzes = response.data);
 }
+
+function getMyquizzes() {
+    
+}
