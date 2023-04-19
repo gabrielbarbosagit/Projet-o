@@ -1,5 +1,6 @@
 body * {
     font-family: 'Roboto', sans-serif;
+    background: #E5E5E5;
 }
 
 header {
@@ -17,3 +18,11 @@ header {
     justify-content: center;
     align-items: center;
 }
+
+.tela3 {
+    margin-top: 75px;
+    display: flex;
+    justify-content: center;
+}
+
+
