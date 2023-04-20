@@ -28,12 +28,14 @@ function getAllQuizzes() {
 }
 
 function getMyQuizzes() {
-    myQuizzes = [
-                    {id: 16},
-                    {id: 17},
-                    {id: 13},
-                    {id: 14}
-                ];
+    // myQuizzes = [
+    //                 {id: 16},
+    //                 {id: 17},
+    //                 {id: 13},
+    //                 {id: 14}
+    //             ];
+
+    myQuizzes = '';
 }
 
 function showQuizzes() {
