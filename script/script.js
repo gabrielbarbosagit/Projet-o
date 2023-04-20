@@ -3,7 +3,25 @@ axios.defaults.headers.common['Authorization'] = '6egTHlqTKMxEUcF23T3ePOB9';
 let allQuizzes;
 let myQuizzes;
 
+
 showQuizzes();
+
+
+
+function playQuizz(quizzSelecionado){
+    showScreen(2)
+    // pegar o nome do quiz // h2 quiz selecionado
+    // pesquisar o quiz no all quizzes usando o title // hof find
+    // depois que achou, pegar o objeto para renderizar o objeto na tela 
+    // onclick - mudar o display
+    // contabilizar os acertos
+    // comparar com o numero quizz
+    // montar a porcentagem de acerto
+    // display a comparacao e sucesso ou nao
+    // habilita dois botoes 1- reset pro proprio quizz 2- se clicar ele volta pra showquizzes  
+
+
+}
 
 function showScreen(n) {
     if (n === 1) {
