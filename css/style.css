@@ -23,41 +23,58 @@ header {
 main {
     width: 100%;
     height: 100%;
+    background-color: #FAFAFA;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.sobreposition { 
-    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.5) 65%, #000000 100%);
-    border-radius: 5px;
+.teste {
+    width: 340px;
+    height: 181px;
 }
 
 .tela1 {
     width: 91%;
     height: 100%;
     max-width: 1050px;
-    margin-top: 77px;
+    margin-top: calc(100px + 5 / 71 * (100% - 340px));
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
 
-.quiz {
-    width: 340px;
-    height: 181px;
-    position: relative;
+.tela1 .container-title {
+    width: 100%;
+    font-weight: 700;
+    font-size: 20px;
     margin-bottom: 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.quiz img {
+.tela1 .container-title button {
+    background: none;
+    border: none;
+}
+
+.tela1 .container-title button ion-icon {
+    font-size: 30px;
+    color: #EC362D;
+}
+
+.quiz-card {
     width: 340px;
     height: 181px;
     border-radius: 5px;
+    position: relative;
+    margin-right: 15px;
+    margin-bottom: 12px;
 }
 
-.quiz h2 {
+.quiz-card h2 {
     position: absolute;
     top: 130px;
     left: 17px;
@@ -66,20 +83,56 @@ main {
     font-weight: 400;
 }
 
+.makeAQuizz {
+    height: 181px;
+    width: 100%;
+    border-radius: 5px;
+    border: #d4d4d4 dashed 1px;
+    margin-bottom: 7%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.makeAQuizz h3 {
+    margin-top: 15px;
+    color: #b9b9b9;
+    text-align: center;
+}
+
+.makeAQuizz button {
+    width: 150px;
+    height: 40px;
+    background: none;
+    color: #EC362D;
+    font-size: 21px;
+    border-radius: 50px;
+    border: #EC362D dashed 1px;
+}
+
 .allQuizzes {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
+.allQuizzes .quiz-card:nth-child(3n+1) {
+    margin-right: 0;
+}
+
 .myQuizzes {
+    width: 100%;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
+}
+
+.myQuizzes .quiz-card:nth-child(3n+1) {
+    margin-right: 0;
 }
 
 .tela2 {
@@ -90,8 +143,6 @@ main {
     width: 100%;
     height: 100%;
 }
-
-
 
 .header-pergunta {
     height: 142px;
@@ -105,12 +156,6 @@ main {
     cursor: pointer;
     background-image: url('https://51047.cdn.simplo7.net/static/51047/sku/quadros-por-formato-quadro-decorativo-paisagem-riacho-natureza--p-1660659145539.jpg')
 }
-
-
-
-
-
-
 
 .header-pergunta span {
     font-family: Roboto;
@@ -173,7 +218,6 @@ main {
     flex-wrap: wrap;
 }
 
-
 .imagem-img {
     width: 125px;
     height: 113px;
@@ -182,7 +226,6 @@ main {
     cursor: pointer;
     background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-t1NkwVHzwJ_ZZhRvAIN1LAewWA4KNiorEg&usqp=CAU')
 }
-
 
 .escolherImagem-img p {
     font-family: Roboto;
