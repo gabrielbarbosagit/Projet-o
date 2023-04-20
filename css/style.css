@@ -28,9 +28,9 @@ main {
     align-items: center;
 }
 
-.sobreposition { 
-    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.5) 65%, #000000 100%);
-    border-radius: 5px;
+.teste {
+    width: 340px;
+    height: 181px;
 }
 
 .tela1 {
@@ -47,14 +47,9 @@ main {
 .quiz {
     width: 340px;
     height: 181px;
+    border-radius: 5px;
     position: relative;
     margin-bottom: 12px;
-}
-
-.quiz img {
-    width: 340px;
-    height: 181px;
-    border-radius: 5px;
 }
 
 .quiz h2 {
@@ -91,8 +86,6 @@ main {
     height: 100%;
 }
 
-
-
 .header-pergunta {
     height: 142px;
     width: 100vw;
@@ -105,12 +98,6 @@ main {
     cursor: pointer;
     background-image: url('https://51047.cdn.simplo7.net/static/51047/sku/quadros-por-formato-quadro-decorativo-paisagem-riacho-natureza--p-1660659145539.jpg')
 }
-
-
-
-
-
-
 
 .header-pergunta span {
     font-family: Roboto;
@@ -173,7 +160,6 @@ main {
     flex-wrap: wrap;
 }
 
-
 .imagem-img {
     width: 125px;
     height: 113px;
@@ -182,7 +168,6 @@ main {
     cursor: pointer;
     background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-t1NkwVHzwJ_ZZhRvAIN1LAewWA4KNiorEg&usqp=CAU')
 }
-
 
 .escolherImagem-img p {
     font-family: Roboto;

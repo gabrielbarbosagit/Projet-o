@@ -32,9 +32,7 @@ function getMyQuizzes() {
 }
 
 function showQuizzes() {
-    document.querySelector('.tela1').style.display = 'flex';
-    document.querySelector('.tela2').style.display = 'none';
-    document.querySelector('.tela3').style.display = 'none';
+    showScreen(1);
     getMyQuizzes();
 
     if (myQuizzes) { //Se myQuizzes não for vazio ou undefined
@@ -88,10 +86,17 @@ function renderQuizzes(adress, Quizzes) {
 
     Quizzes.forEach(quiz => {
         container.innerHTML += `
-            <div class="quiz sobreposition">
-                <img src=${quiz.image}>
+            <div class="quiz" onclick="playQuizz()">
                 <h2>${quiz.title}</h2>
             </div>
         `;
-        })
+
+        container.querySelector('div:last-child').style.backgroundImage = `linear-gradient(
+            180deg, 
+            transparent,
+            rgba(0, 0, 0, 0.5) 65%, 
+            #000000 100%),
+            url(${quiz.image})`;
+        container.querySelector('div:last-child').style.backgroundSize = '340px 181px';
+        });
 }
