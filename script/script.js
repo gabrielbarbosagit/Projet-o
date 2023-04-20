@@ -3,10 +3,9 @@ axios.defaults.headers.common['Authorization'] = '6egTHlqTKMxEUcF23T3ePOB9';
 let allQuizzes;
 let myQuizzes;
 
+//showQuizzes();
 
-showQuizzes();
-
-
+showScreen(3);
 
 function playQuizz(quizzSelecionado){
     showScreen(2)
@@ -134,3 +133,5 @@ function renderQuizzes(adress, Quizzes) {
         container.querySelector('div:last-child').style.backgroundSize = '340px 181px';
         });
 }
+
+/* FUNÇÕES TELA 3 */

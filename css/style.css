@@ -98,6 +98,10 @@ main {
     align-items: center;
 }
 
+.esconde-tela {
+    display: none;
+}
+
 .infoQuizz, .perguntasQuizz, .niveisQuizz, .sucessoQuizz {
     display: flex;
     flex-direction: column;
@@ -116,7 +120,7 @@ main {
 }
 
 .infoQuizz {
-    display: none;
+
 }
 
 .titulo-principal-tela3 {
@@ -151,7 +155,7 @@ main {
 }
 
 .perguntasQuizz {
-    display: none;
+
 }
 
 .infosCriarPergunta {
@@ -172,10 +176,11 @@ main {
     border-radius: 5px;
     margin-bottom: 9px;
     background-color: #FFFFFF;
+    font-size: 19px;
+    padding-left: 14px;
 }
 
 .infosCriarPergunta input::placeholder {
-    padding-left: 14px;
     font-style: italic;
     font-size: 19px;
     color: #BABABA;
@@ -197,7 +202,7 @@ main {
 }
 
 .niveisQuizz {
-    display: none;
+    
 }
 
 .infosNiveis {
@@ -223,7 +228,6 @@ main {
 }
 
 .infosNiveis input::placeholder {
-    /* padding-left: 14px; */
     font-style: italic;
     font-size: 19px;
     color: #BABABA;
@@ -246,18 +250,16 @@ main {
     font-style: italic;
     font-size: 19px;
     color: #BABABA;
-    /* padding: 13px 0 0 14px; */
 }
 
 .p2 {
     display: flex;
     flex-direction: column;
     background-color: #FFFFFF;
-
 }
 
 .sucessoQuizz {
-    display: none;
+
 }
 
 .quizzPronto {
@@ -292,7 +294,6 @@ main {
     color: #818181;
     background: none;
 }
-
 /* FIM TELA 3 */
 
 .makeAQuizz {
