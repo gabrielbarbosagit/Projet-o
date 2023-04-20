@@ -28,7 +28,12 @@ function getAllQuizzes() {
 }
 
 function getMyQuizzes() {
-    myQuizzes = [];
+    myQuizzes = [
+                    {id: 16},
+                    {id: 17},
+                    {id: 13},
+                    {id: 14}
+                ];
 }
 
 function showQuizzes() {
@@ -49,9 +54,9 @@ function showQuizzes() {
 
         let arrayMyQuizzes = [];
         let arrayNotMyQuizzes = [];
-        separateMyquizzesandNotMyQuizzes(arrayMyQuizzes, arrayNotMyQuizzes);
+        [arrayMyQuizzes, arrayNotMyQuizzes] = separateMyquizzesandNotMyQuizzes(arrayMyQuizzes, arrayNotMyQuizzes);
 
-        if (myQuizzes) {
+        if (myQuizzes) { //Se myQuizzes não for vazio ou undefined
             renderQuizzes('.tela1 .myQuizzes', arrayMyQuizzes);
         }
         
@@ -78,15 +83,24 @@ function separateMyquizzesandNotMyQuizzes(arrayMyQuizzes, arrayNotMyQuizzes) {
     } else {
         arrayNotMyQuizzes = allQuizzes;
     }
+
+    return [arrayMyQuizzes, arrayNotMyQuizzes]
 }
 
 function renderQuizzes(adress, Quizzes) {
     const container = document.querySelector(adress);
-    container.innerHTML = '';
+
+    if (adress === '.tela1 .allQuizzes') {
+        container.innerHTML = '<div class="container-title">Todos os Quizzes</div>';
+    } else {
+        container.innerHTML = `<div class="container-title">Seus Quizzes 
+                                    <button onclick="makeAQuizz()"><ion-icon name="add-circle"></ion-icon></button>
+                               </div>`;
+    }
 
     Quizzes.forEach(quiz => {
         container.innerHTML += `
-            <div class="quiz" onclick="playQuizz()">
+            <div class="quiz-card" onclick="playQuizz()">
                 <h2>${quiz.title}</h2>
             </div>
         `;
