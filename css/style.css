@@ -1,6 +1,9 @@
 body * {
     font-family: 'Roboto', sans-serif;
-    background: #E5E5E5;
+}
+
+body {
+    background: #FAFAFA;
 }
 
 header {
@@ -86,6 +89,7 @@ main {
 
 /* CONFIGS TELA 3 */
 .tela3 {
+    margin-top: 70px;
     font-weight: 700;
     font-size: 20px;
     color: #000000;
@@ -175,7 +179,7 @@ main {
     font-style: italic;
     font-size: 19px;
     color: #BABABA;
-}display: none;
+}
 
 .p1 {
     display: flex;
@@ -214,10 +218,12 @@ main {
     border-radius: 5px;
     margin-bottom: 9px;
     background-color: #FFFFFF;
+    font-size: 19px;
+    padding-left: 14px;
 }
 
 .infosNiveis input::placeholder {
-    padding-left: 14px;
+    /* padding-left: 14px; */
     font-style: italic;
     font-size: 19px;
     color: #BABABA;
@@ -230,13 +236,17 @@ main {
     border-radius: 5px;
     margin-bottom: 9px;
     background-color: #FFFFFF;
+    font-size: 19px;
+    padding-left: 14px;
+    padding-top: 13px;
+
 }
 
 .infosNiveis textarea::placeholder {
     font-style: italic;
     font-size: 19px;
     color: #BABABA;
-    padding: 13px 0 0 14px;
+    /* padding: 13px 0 0 14px; */
 }
 
 .p2 {
@@ -280,6 +290,11 @@ main {
     font-weight: 400;
     font-size: 18px;
     color: #818181;
+    background: none;
+}
+
+/* FIM TELA 3 */
+
 .makeAQuizz {
     height: 181px;
     width: 100%;

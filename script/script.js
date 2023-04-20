@@ -6,7 +6,6 @@ let myQuizzes;
 
 showQuizzes();
 
-showScreen(2);
 
 
 function playQuizz(quizzSelecionado){
@@ -19,8 +18,7 @@ function playQuizz(quizzSelecionado){
     // comparar com o numero quizz
     // montar a porcentagem de acerto
     // display a comparacao e sucesso ou nao
-    // habilita dois botoes 1- reset pro proprio quizz 2- se clicar ele volta pra showquizzes
-    
+    // habilita dois botoes 1- reset pro proprio quizz 2- se clicar ele volta pra showquizzes  
 
 
 }
