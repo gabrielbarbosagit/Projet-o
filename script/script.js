@@ -38,14 +38,14 @@ function showQuizzes() {
         separateMyquizzesandNotMyQuizzes(arrayMyQuizzes, arrayNotMyQuizzes);
 
         if (myQuizzes) {
-            renderQuizzes('.tela1 .myQuizzes ul', arrayMyQuizzes);
+            renderQuizzes('.tela1 .myQuizzes', arrayMyQuizzes);
         }
         
-        renderQuizzes('.tela1 .allQuizzes ul', arrayNotMyQuizzes);
+        renderQuizzes('.tela1 .allQuizzes', arrayNotMyQuizzes);
     }).catch(error => {
         alert(`Erro ao tentar acessar o servidor\n
-              ${error.response.status}\n
-              ${error.response.statusMessage}`);
+              ${error.status}\n
+              ${error.statusMessage}`);
 
         window.location.reload();
     })
@@ -72,10 +72,10 @@ function renderQuizzes(adress, Quizzes) {
 
     Quizzes.forEach(quiz => {
         container.innerHTML += `
-            <li class="quiz sobreposition">
+            <div class="quiz sobreposition">
                 <img src=${quiz.image}>
                 <h2>${quiz.title}</h2>
-            </li>
+            </div>
         `;
         })
 }
