@@ -33,9 +33,12 @@ main {
     align-items: center;
 }
 
-.teste {
-    width: 340px;
-    height: 181px;
+.allQuizzes {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 /* CONFIGS TELA 1 */
@@ -271,10 +274,6 @@ main {
     align-items: center;
 }
 
-.esconde-tela {
-    display: none;
-}
-
 .infoQuizz, .perguntasQuizz, .niveisQuizz, .sucessoQuizz {
     display: flex;
     flex-direction: column;
@@ -292,8 +291,8 @@ main {
     border: none;
 }
 
-.infoQuizz {
-
+.infoQuizz.esconde-tela, .perguntasQuizz.esconde-tela, .niveisQuizz.esconde-tela, .sucessoQuizz.esconde-tela {
+    display: none;
 }
 
 .titulo-principal-tela3 {
@@ -308,7 +307,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 29px 0;   
+    margin: 29px 0;  
 }
 
 .infosBasicas input {
@@ -318,17 +317,14 @@ main {
     border-radius: 5px;
     margin-bottom: 9px;
     background-color: #FFFFFF;
+    font-size: 19px;
+    padding-left: 14px;
 }
 
 .infosBasicas input::placeholder {
-    padding-left: 14px;
     font-style: italic;
     font-size: 19px;
     color: #BABABA;    
-}
-
-.perguntasQuizz {
-
 }
 
 .infosCriarPergunta {
@@ -374,10 +370,6 @@ main {
     margin-bottom: 17px;
 }
 
-.niveisQuizz {
-    
-}
-
 .infosNiveis {
     width: 375px;
     height: 439px;
@@ -416,7 +408,6 @@ main {
     font-size: 19px;
     padding-left: 14px;
     padding-top: 13px;
-
 }
 
 .infosNiveis textarea::placeholder {
@@ -429,10 +420,6 @@ main {
     display: flex;
     flex-direction: column;
     background-color: #FFFFFF;
-}
-
-.sucessoQuizz {
-
 }
 
 .quizzPronto {
@@ -467,160 +454,40 @@ main {
     color: #818181;
     background: none;
 }
+
+@media (min-width: 1100px) {
+    .prosseguirCriarPerguntas, .prosseguirCriarNiveis, .finalizarQuizz, .acessarQuizz {
+        width: 368px;
+        height: 54px;
+    }
+
+    .infosBasicas {
+        width: 600px;
+        height: 256px;  
+    }
+
+    .infosCriarPergunta {
+        width: 600px;
+        height: 825px;
+    }
+
+    .infosNiveis {
+        width: 600px;
+        height: 316px;
+    }
+
+    .infosBasicas input, .infosCriarPergunta input, .infosNiveis input, .infosNiveis textarea {
+        width: 564px;
+        height: 46px;
+    }
+
+    .infosNiveis textarea {
+        height: 32px;
+    }
+
+    .quizzPronto img {
+        width: 500px;
+        height: 246px;
+    }
+}
 /* FIM TELA 3 */
-
-.makeAQuizz {
-    height: 181px;
-    width: 100%;
-    border-radius: 5px;
-    border: #d4d4d4 dashed 1px;
-    margin-bottom: 7%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.makeAQuizz h3 {
-    margin-top: 15px;
-    color: #b9b9b9;
-    text-align: center;
-}
-
-.makeAQuizz button {
-    width: 150px;
-    height: 40px;
-    background: none;
-    color: #EC362D;
-    font-size: 21px;
-    border-radius: 50px;
-    border: #EC362D dashed 1px;
-}
-
-.allQuizzes {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-}
-
-.allQuizzes .quiz-card:nth-child(3n+1) {
-    margin-right: 0;
-}
-
-.myQuizzes {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-}
-
-.myQuizzes .quiz-card:nth-child(3n+1) {
-    margin-right: 0;
-}
-
-.tela2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #FAFAFA;
-    width: 100%;
-    height: 100%;
-}
-
-.header-pergunta {
-    height: 142px;
-    width: 100vw;
-    margin-top: 69px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-position: center;
-    background-size: cover;
-    cursor: pointer;
-    background-image: url('https://51047.cdn.simplo7.net/static/51047/sku/quadros-por-formato-quadro-decorativo-paisagem-riacho-natureza--p-1660659145539.jpg')
-}
-
-.header-pergunta span {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 19px;
-    line-height: 22px;
-    color: red;
-    text-align: center;
-}
-
-.container-perguntas{
-    width: 375px;
-    height: auto;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
-    margin-top: 28px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.quizzes_screen .container-perguntas:first-of-type {
-    margin-top: 24px;
-}
-
-.quizzes_screen .container-perguntas:last-of-type {
-    margin-bottom: 24px;
-}
-
-.perguntas-quiz {
-    width: 340px;
-    height: 89px;
-    margin-top: 18px;
-    margin-bottom: 13px;
-    display: flex;
-    justify-content: center;
-    background-color:#123456
-}
-
-.perguntas-quiz span {
-    text-align: center;
-    margin: auto 16px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 19px;
-    line-height: 22px;
-    color: #FFFFFF
-}
-
-.escolherImagem {
-    width: 338px;
-    height: auto;
-    background-color: #FFFFFF;
-    margin-bottom: 23px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.imagem-img {
-    width: 125px;
-    height: 113px;
-    background-position: center;
-    background-size: cover;
-    cursor: pointer;
-    background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-t1NkwVHzwJ_ZZhRvAIN1LAewWA4KNiorEg&usqp=CAU')
-}
-
-.escolherImagem-img p {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 15px;
-    margin-top: 5px;
-    width: 163px;
-    height: auto;
-    word-break: break-all;
-}

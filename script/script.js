@@ -3,10 +3,6 @@ axios.defaults.headers.common['Authorization'] = '6egTHlqTKMxEUcF23T3ePOB9';
 let allQuizzes;
 let myQuizzes;
 
-//showQuizzes();
-
-showScreen(3);
-
 function playQuizz(quizzSelecionado){
     showScreen(2)
     // pegar o nome do quiz // h2 quiz selecionado
@@ -21,6 +17,7 @@ function playQuizz(quizzSelecionado){
 
 
 }
+
 showQuizzes();
 
 /////////////////////////////FUNÇÕES GERAIS/////////////////////////////////////////////////
@@ -166,5 +163,50 @@ function playQuizz(quizzSelecionado){
 
 function makeAQuizz() {
     showScreen(3);
-
 }
+
+function prossegueCriarPerguntas() {
+    const paginaAnterior = document.querySelector('.infoQuizz');
+    paginaAnterior.classList.add('esconde-tela')
+
+    const proximaPagina = document.querySelector('.perguntasQuizz');
+    proximaPagina.classList.remove('esconde-tela')
+}
+
+function prossegueCriarNiveis() {
+    const paginaAnterior = document.querySelector('.perguntasQuizz');
+    paginaAnterior.classList.add('esconde-tela')
+
+    const proximaPagina = document.querySelector('.niveisQuizz');
+    proximaPagina.classList.remove('esconde-tela')
+} 
+
+function prossegueFinalizarQuizz() {
+    const paginaAnterior = document.querySelector('.niveisQuizz');
+    paginaAnterior.classList.add('esconde-tela')
+
+    const proximaPagina = document.querySelector('.sucessoQuizz');
+    proximaPagina.classList.remove('esconde-tela')
+} 
+
+function acessarQuizz() {
+    const paginaAnterior = document.querySelector('.sucessoQuizz');
+    paginaAnterior.classList.add('esconde-tela')
+
+    const proximaPagina = document.querySelector('.infoQuizz');
+    proximaPagina.classList.remove('esconde-tela')
+
+    playQuizz();
+} 
+
+function voltarHome() {
+    const paginaAnterior = document.querySelector('.sucessoQuizz');
+    paginaAnterior.classList.add('esconde-tela')
+
+    const proximaPagina = document.querySelector('.infoQuizz');
+    proximaPagina.classList.remove('esconde-tela')
+
+    showQuizzes();
+}
+
+///////////////////////////////////FIM FUNÇÕES TELA 3/////////////////////////////////////////
