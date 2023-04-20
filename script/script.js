@@ -5,7 +5,7 @@ let myQuizzes;
 
 showQuizzes();
 
-function getAllQuizzes() { 
+function getAllQuizzes() {
     const promise = axios.get('https://mock-api.driven.com.br/api/vm/buzzquizz/quizzes');
     
     return promise;
@@ -22,16 +22,12 @@ function showQuizzes() {
     getMyQuizzes();
 
     if (myQuizzes) { //Se myQuizzes não for vazio ou undefined
-        document.querySelector('.tela1 .myQuizzes').style.display = 'flex';
-        document.querySelector('.tela1 .makeAQuizz').style.display = 'none';
+        document.querySelector('.myQuizzes').style.display = 'flex';
+        document.querySelector('.makeAQuizz').style.display = 'none';
     } else {
-        document.querySelector('.tela1 .myQuizzes').style.display = 'none';
-        document.querySelector('.tela1 .makeAQuizz').style.display = 'flex';
+        document.querySelector('.myQuizzes').style.display = 'none';
+        document.querySelector('.makeAQuizz').style.display = 'flex';
     }
-
-    const promise = getAllQuizzes();
-    promise.then(response => {
-        allQuizzes = response.data;
 
         let arrayMyQuizzes = [];
         let arrayNotMyQuizzes = [];
