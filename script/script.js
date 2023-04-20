@@ -5,6 +5,22 @@ let myQuizzes;
 
 showQuizzes();
 
+function showScreen(n) {
+    if (n === 1) {
+        document.querySelector('.tela1').style.display = 'flex';
+        document.querySelector('.tela2').style.display = 'none';
+        document.querySelector('.tela3').style.display = 'none';
+    } else if (n === 2) {
+        document.querySelector('.tela1').style.display = 'none';
+        document.querySelector('.tela2').style.display = 'flex';
+        document.querySelector('.tela3').style.display = 'none';
+    } else {
+        document.querySelector('.tela1').style.display = 'none';
+        document.querySelector('.tela2').style.display = 'none';
+        document.querySelector('.tela3').style.display = 'flex';
+    }
+}
+
 function getAllQuizzes() { 
     const promise = axios.get('https://mock-api.driven.com.br/api/vm/buzzquizz/quizzes');
     
