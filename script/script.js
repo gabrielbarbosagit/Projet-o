@@ -102,7 +102,7 @@ function renderQuizzes(adress, Quizzes) {
 
     Quizzes.forEach(quiz => {
         container.innerHTML += `
-            <div class="quiz-card" onclick="playQuizz()">
+            <div class="quiz-card" onclick="playQuizz(this)">
                 <h2>${quiz.title}</h2>
             </div>
         `;
