@@ -31,23 +31,79 @@
 
   <div class="tela2"></div>
 
+  <!-- TELA 3 - CRIAÇÃO DE QUIZ -->
   <div class="tela3">
+    <!-- TELA 3.1 - Info básica do Quiz -->
     <div class="infoQuizz">
+      <div class="titulo-principal-tela3">Comece pelo começo</div>
+      <div class="infosBasicas">
+        <input type="text" placeholder="Título do seu quizz">
+        <input type="text" placeholder="URL da imagem do seu quizz">
+        <input type="text" placeholder="Quantidade de perguntas do quizz">
+        <input type="text" placeholder="Quantidade de níveis do quizz">
+      </div>
       <button class="prosseguirCriarPerguntas">Prosseguir para criar perguntas</button>
     </div>
+    <!-- TELA 3.2 - Perguntas do Quiz -->
     <div class="perguntasQuizz">
-      <button class="prosseguirCriarNiveis">Prosseguir para criar níveis</button>
+      <div class="titulo-principal-tela3">Crie suas perguntas</div>
+        <div class="infosCriarPergunta">
+          <div class="p1">
+            <div class="p1-t">Pergunta 1</div>
+            <input type="text" placeholder="Texto da pergunta">
+            <input type="text" placeholder="Cor de fundo da pergunta">
+          </div>
+          <div class="p1">
+            <div class="p1-t">Resposta correta</div>
+            <input type="text" placeholder="Resposta correta">
+            <input type="text" placeholder="URL da imagem">
+          </div>  
+          <div class="p1">
+            <div class="p1-t">Respostas incorretas</div>     
+            <input type="text" placeholder="Resposta incorreta 1">
+            <input type="text" placeholder="URL da imagem 1">
+            <div class="input-margin"></div>
+            <input type="text" placeholder="Resposta incorreta 2">
+            <input type="text" placeholder="URL da imagem 2">
+            <div class="input-margin"></div>
+            <input type="text" placeholder="Resposta incorreta 3">
+            <input type="text" placeholder="URL da imagem 3">
+          </div>          
+        </div>
+        <button class="prosseguirCriarNiveis">Prosseguir para criar níveis</button>
     </div>
+    <!-- TELA 3.3 - Níveis do Quiz -->
     <div class="niveisQuizz">
+      <div class="titulo-principal-tela3">Agora, decida os níveis!</div>
+      <div class="infosNiveis">
+        <div class="p2">
+          <div class="p1-t">Nível 1</div>
+          <input type="text" placeholder="Título da pergunta">
+          <input type="text" placeholder="% de acerto mínima">
+          <input type="text" placeholder="URL da imagem do nível">
+          <textarea name="" id="" cols="30" rows="10" placeholder="Descrição do nível"></textarea>
+        </div>
+      </div>
       <button class="finalizarQuizz">Finalizar Quizz</button>
     </div>
+    <!-- TELA 3.4 - Sucesso do Quiz -->
     <div class="sucessoQuizz">
+      <div class="titulo-principal-tela3">Seu quizz está pronto!</div>
+      <div class="quizzPronto">
+          <img src="https://1.bp.blogspot.com/-vkG0CjoS0I0/YG8kU_tQHkI/AAAAAAAADMM/ZZHt3UHGMmoo4TVQ2GfTR2bMoJ20CzV6gCLcBGAsYHQ/s2048/EONb4ENU4AIipTP.jpg" alt="">
+          <div class="tituloQuizzCriado">Hogwarts - um lugar pra lá de bagdaa!</div>
+      </div>
       <button class="acessarQuizz">Acessar Quiz</button>
       <button class="voltarHome">Voltar para Home</button>
     </div>
   </div>
 
+  <!-- SCRIPTS -->
+
+  <!-- AXIOS -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <!-- JS -->
   <script src="./script/script.js"></script>
 </body>
 </html>
