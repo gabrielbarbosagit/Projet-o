@@ -177,6 +177,7 @@ const perguntas = document.getElementById('quizResult');
 function renderQuizz(question) {
   const containerPerguntas = document.createElement('div');
   containerPerguntas.className = 'container-perguntas';
+  containerPerguntas.setAttribute('data-test', 'question');
   perguntas.appendChild(containerPerguntas);
 
   const perguntasQuiz = document.createElement('div');
