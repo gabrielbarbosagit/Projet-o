@@ -209,7 +209,7 @@ main {
     margin-top: 28px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     scroll-margin: 60px;
     flex-wrap: wrap;  
 }
