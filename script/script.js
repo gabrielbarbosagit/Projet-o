@@ -29,7 +29,7 @@ function getAllQuizzes() {
 }
 
 function getMyQuizzes() {
-    const myQuizzesIdSerializado = localStorage.getItem('id');
+    const myQuizzesIdSerializado = localStorage.getItem('ids');
     myQuizzesId = JSON.parse(myQuizzesIdSerializado);
 
     if(myQuizzesId === null) {
