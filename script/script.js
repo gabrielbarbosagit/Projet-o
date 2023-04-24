@@ -294,7 +294,6 @@ setTimeout(function() {
     resetButton.setAttribute('data-test', 'restart');
     resetButton.innerHTML = 'Resetar Quizz';
     resetButton.addEventListener('click', resetQuizz); // Adiciona o evento de clique ao 
-    resetButton.style.height = '52px';
     divButtons.appendChild(resetButton); // Adiciona o botão à div 'level-container'
 
      // Cria um novo elemento button para voltar à home
@@ -308,7 +307,6 @@ setTimeout(function() {
     // stylizando
     divButtons.style.display = 'flex';
     divButtons.style.flexDirection = 'column';
-    divButtons.style.height = '100px';
     divButtons.style.justifyContent = 'space-between';
     divButtons.style.marginTop = '50px';
 
