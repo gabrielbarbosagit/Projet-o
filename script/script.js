@@ -975,7 +975,7 @@ function prossegueFinalizarQuizz() {
         const promise = axios.post('https://mock-api.driven.com.br/api/vm/buzzquizz/quizzes', quizzEmConstrução[0]);
         promise.then(resposta => { myQuizzesId.push({id: resposta.data.id}); 
             let myQuizzesIdSerializado = JSON.stringify(myQuizzesId);
-            localStorage.setItem('id', myQuizzesIdSerializado);
+            localStorage.setItem('ids', myQuizzesIdSerializado);
         });
 
         promise.catch(resposta => console.log(resposta));    
