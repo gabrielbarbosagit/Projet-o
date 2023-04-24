@@ -652,7 +652,7 @@ function prossegueCriarPerguntas() {
                         <input data-test="wrong-answer-input" class="resposta_incorreta2_pergunta${i+1}" type="text" placeholder="Resposta incorreta 2">
                         <input data-test="wrong-img-input" class="url_resposta_incorreta2_pergunta${i+1}" type="text" placeholder="URL da imagem 2">
                         <p></p>
-                        <input data-test="wro ng-answer-input" class="resposta_incorreta3_pergunta${i+1}" type="text" placeholder="Resposta incorreta 3">
+                        <input data-test="wrong-answer-input" class="resposta_incorreta3_pergunta${i+1}" type="text" placeholder="Resposta incorreta 3">
                         <input data-test="wrong-img-input" class="url_resposta_incorreta3_pergunta${i+1}" type="text" placeholder="URL da imagem 3">
                     </div>  
                 </div>
@@ -881,13 +881,13 @@ function prossegueFinalizarQuizz() {
                         <input data-test="correct-img-input" class="url_resposta_correta_pergunta1" type="text" placeholder="URL da imagem">
                         <p>Respostas incorretas</p>
                         <input data-test="wrong-answer-input" class="resposta_incorreta1_pergunta1" type="text" placeholder="Resposta incorreta 1">
-                        <input data-test="wrong-answer-input" class="url_resposta_incorreta1_pergunta1" type="text" placeholder="URL da imagem 1">
+                        <input data-test="wrong-img-input" class="url_resposta_incorreta1_pergunta1" type="text" placeholder="URL da imagem 1">
                         <p></p>
                         <input data-test="wrong-answer-input" class="resposta_incorreta2_pergunta1" type="text" placeholder="Resposta incorreta 2">
-                        <input data-test="wrong-answer-input" class="url_resposta_incorreta2_pergunta1" type="text" placeholder="URL da imagem 2">
+                        <input data-test="wrong-img-input" class="url_resposta_incorreta2_pergunta1" type="text" placeholder="URL da imagem 2">
                         <p></p>
                         <input data-test="wrong-answer-input" class="resposta_incorreta3_pergunta1" type="text" placeholder="Resposta incorreta 3">
-                        <input data-test="wrong-answer-input" class="url_resposta_incorreta3_pergunta1" type="text" placeholder="URL da imagem 3">
+                        <input data-test="wrong-img-input" class="url_resposta_incorreta3_pergunta1" type="text" placeholder="URL da imagem 3">
                     </div>  
                 </div>
             </div>
@@ -903,13 +903,13 @@ function prossegueFinalizarQuizz() {
                         <input data-test="correct-img-input" class="url_resposta_correta_pergunta2" type="text" placeholder="URL da imagem">
                         <p>Respostas incorretas</p>
                         <input data-test="wrong-answer-input" class="resposta_incorreta1_pergunta2" type="text" placeholder="Resposta incorreta 1">
-                        <input data-test="wrong-answer-input" class="url_resposta_incorreta1_pergunta2" type="text" placeholder="URL da imagem 1">
+                        <input data-test="wrong-img-input" class="url_resposta_incorreta1_pergunta2" type="text" placeholder="URL da imagem 1">
                         <p></p>
                         <input data-test="wrong-answer-input" class="resposta_incorreta2_pergunta2" type="text" placeholder="Resposta incorreta 2">
-                        <input data-test="wrong-answer-input" class="url_resposta_incorreta2_pergunta2" type="text" placeholder="URL da imagem 2">
+                        <input data-test="wrong-img-input" class="url_resposta_incorreta2_pergunta2" type="text" placeholder="URL da imagem 2">
                         <p></p>
                         <input data-test="wrong-answer-input" class="resposta_incorreta3_pergunta2" type="text" placeholder="Resposta incorreta 3">
-                        <input data-test="wrong-answer-input" class="url_resposta_incorreta3_pergunta2" type="text" placeholder="URL da imagem 3">
+                        <input data-test="wrong-img-input" class="url_resposta_incorreta3_pergunta2" type="text" placeholder="URL da imagem 3">
                     </div>  
                 </div>
             </div>
@@ -925,13 +925,13 @@ function prossegueFinalizarQuizz() {
                         <input data-test="correct-img-input" class="url_resposta_correta_pergunta3" type="text" placeholder="URL da imagem">
                         <p>Respostas incorretas</p>
                         <input data-test="wrong-answer-input" class="resposta_incorreta1_pergunta3" type="text" placeholder="Resposta incorreta 1">
-                        <input data-test="wrong-answer-input" class="url_resposta_incorreta1_pergunta3" type="text" placeholder="URL da imagem 1">
+                        <input data-test="wrong-img-input" class="url_resposta_incorreta1_pergunta3" type="text" placeholder="URL da imagem 1">
                         <p></p>
                         <input data-test="wrong-answer-input" class="resposta_incorreta2_pergunta3" type="text" placeholder="Resposta incorreta 2">
-                        <input data-test="wrong-answer-input" class="url_resposta_incorreta2_pergunta3" type="text" placeholder="URL da imagem 2">
+                        <input data-test="wrong-img-input" class="url_resposta_incorreta2_pergunta3" type="text" placeholder="URL da imagem 2">
                         <p></p>
                         <input data-test="wrong-answer-input" class="resposta_incorreta3_pergunta3" type="text" placeholder="Resposta incorreta 3">
-                        <input data-test="wrong-answer-input" class="url_resposta_incorreta3_pergunta3" type="text" placeholder="URL da imagem 3">
+                        <input data-test="wrong-img-input" class="url_resposta_incorreta3_pergunta3" type="text" placeholder="URL da imagem 3">
                     </div>  
                 </div>
             </div>
