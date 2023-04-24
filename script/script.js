@@ -1,7 +1,6 @@
 axios.defaults.headers.common['Authorization'] = '6egTHlqTKMxEUcF23T3ePOB9';
 
 let allQuizzes = [];
-let myQuizzes;
 let myQuizzesId = [];
 let selectedQuizz;
 
@@ -15,7 +14,7 @@ function showScreen(n) {
     } else if (n === 2) {
         document.querySelector('.tela1').style.display = 'none';
         document.querySelector('.tela2').style.display = 'flex';
-        //document.querySelector('.tela3').style.display = 'none';
+        document.querySelector('.tela3').style.display = 'none';
     } else {
         document.querySelector('.tela1').style.display = 'none';
         document.querySelector('.tela2').style.display = 'none';
@@ -63,7 +62,7 @@ function showQuizzes() {
     showScreen(1);
     getMyQuizzes();
 
-    if (myQuizzes) { //Se myQuizzes não for vazio ou undefined
+    if (myQuizzesId.length > 0) { //Se myQuizzes não for vazio ou undefined
         document.querySelector('.tela1 .myQuizzes').style.display = 'flex';
         document.querySelector('.tela1 .makeAQuizz').style.display = 'none';
     } else {
@@ -79,7 +78,7 @@ function showQuizzes() {
         let arrayNotMyQuizzes = [];
         [arrayMyQuizzes, arrayNotMyQuizzes] = separateMyquizzesandNotMyQuizzes(arrayMyQuizzes, arrayNotMyQuizzes);
 
-        if (myQuizzes) { //Se myQuizzes não for vazio ou undefined
+        if (myQuizzesId.length > 0) { //Se myQuizzes não for vazio ou undefined
             renderQuizzes('.tela1 .myQuizzes', arrayMyQuizzes);
         }
         
@@ -95,9 +94,9 @@ function showQuizzes() {
 }
 
 function separateMyquizzesandNotMyQuizzes(arrayMyQuizzes, arrayNotMyQuizzes) {
-    if (myQuizzes) { //Se myQuizzes não for vazio ou undefined
+    if (myQuizzesId.length > 0) { //Se myQuizzes não for vazio ou undefined
         allQuizzes.forEach(quiz => {
-            if(myQuizzes.some(myQuizId => quiz.id === myQuizId.id)) {
+            if(myQuizzesId.some(quiz => quiz.id === myQuizzesId.id)) {
                 arrayMyQuizzes.push(quiz);
             } else {
                 arrayNotMyQuizzes.push(quiz);
