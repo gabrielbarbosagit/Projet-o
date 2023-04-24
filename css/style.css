@@ -338,7 +338,6 @@ main {
 
 
 .imagem-img {
-    width: 125px;
     height: 113px;
     background-position: center;
     background-size: cover;
@@ -346,7 +345,7 @@ main {
     opacity: 1;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;     
 }
 
 
