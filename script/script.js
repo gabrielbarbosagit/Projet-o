@@ -140,8 +140,9 @@ function renderQuizzes(adress, Quizzes) {
         
         Quizzes.forEach(quiz => {
         container.innerHTML += `
-            <div data-test="my-quiz" class="quiz-card" onclick="playQuizz(${quiz.id})">
+            <div data-test="my-quiz" class="quiz-card" onclick="playQuizz(${quiz.id})">                
                 <h2>${quiz.title}</h2>
+                <img class="" src="${quiz.image}" alt="">
             </div>
         `;
 
