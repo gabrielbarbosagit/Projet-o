@@ -187,9 +187,9 @@ function renderQuizz(question) {
   containerPerguntas.appendChild(perguntasQuiz);
 
   for (let i = 0; i < question.answers.length; i++) {
-    // const escolherImagem = document.createElement('div');
-    // escolherImagem.className = 'escolherImagem';
-    // containerPerguntas.appendChild(escolherImagem);
+    const escolherImagem = document.createElement('div');
+    escolherImagem.className = 'escolherImagem';
+    containerPerguntas.appendChild(escolherImagem);
 
     const escolherImagemImg = document.createElement('div');
     escolherImagemImg.className = 'escolherImagem-img resposta-nSelecionada';
@@ -197,10 +197,9 @@ function renderQuizz(question) {
     escolherImagemImg.setAttribute('data-isCorrect', question.answers[i].isCorrectAnswer);
     escolherImagemImg.setAttribute('onclick', 'destacarRespostaEscolhida(this)');
 
-    const imagemImg = document.createElement('img');
+    const imagemImg = document.createElement('div');
     imagemImg.className = 'imagem-img';
-    //imagemImg.style.backgroundImage = `url(${question.answers[i].image})`;
-    imagemImg.setAttribute('src',question.answers[i].image);
+    imagemImg.style.backgroundImage = `url(${question.answers[i].image})`;
     escolherImagemImg.appendChild(imagemImg);
 
     const imagemText = document.createElement('p');
@@ -208,7 +207,7 @@ function renderQuizz(question) {
     imagemText.innerHTML = question.answers[i].text;
     escolherImagemImg.appendChild(imagemText);
 
-    containerPerguntas.appendChild(escolherImagemImg);
+    escolherImagem.appendChild(escolherImagemImg);
   }
 
   const titulopergunta = containerPerguntas.querySelector('.perguntas-quiz');
@@ -232,7 +231,7 @@ function destacarRespostaEscolhida(answerElement) {
         answerElement.style.color = "red";
       }
   
-      const todasAsRespostas = escolherImagem.querySelectorAll('.escolherImagem-img');
+      const todasAsRespostas = escolherImagem.parentNode.querySelectorAll('.escolherImagem-img');
   
       todasAsRespostas.forEach(resposta => {
         if (resposta !== answerElement) {
@@ -334,8 +333,10 @@ setTimeout(function() {
     // Encontre o level correspondente à porcentagem de acertos
     let levelEncontrado = false;
 
+    //selectedQuizz.levels.forEach(level => {
         selectedQuizz.levels.forEach((level, index) => {
             if ( (!levelEncontrado && index === selectedQuizz.levels.length - 1) || (!levelEncontrado && porcentagemAcertos < selectedQuizz.levels[index+1].minValue)) {
+        //if (!levelEncontrado && porcentagemAcertos >= level.minValue) {
             // Crie um novo elemento div para exibir os detalhes do level
             const levelContainer = document.createElement('div');
             levelContainer.className = 'level-container'; // Classe personalizada para o container do level
