@@ -31,6 +31,7 @@ function getAllQuizzes() {
 function getMyQuizzes() {
     const myQuizzesIdSerializado = localStorage.getItem('id');
     myQuizzesId = JSON.parse(myQuizzesIdSerializado);
+
     if(myQuizzesId === null) {
         myQuizzesId = [];
     }
@@ -72,13 +73,15 @@ function showQuizzes() {
 
     const promise = getAllQuizzes();
     promise.then(response => {
+        console.log(response.data);
         allQuizzes = response.data;
 
         let arrayMyQuizzes = [];
         let arrayNotMyQuizzes = [];
         [arrayMyQuizzes, arrayNotMyQuizzes] = separateMyquizzesandNotMyQuizzes(arrayMyQuizzes, arrayNotMyQuizzes);
+        console.log(arrayMyQuizzes);
 
-        if (myQuizzesId.length > 0) { //Se myQuizzes não for vazio ou undefined
+        if (myQuizzesId.length > 0) { //Se myQuizzes não for vazio
             renderQuizzes('.tela1 .myQuizzes', arrayMyQuizzes);
         }
         
@@ -94,12 +97,12 @@ function showQuizzes() {
 }
 
 function separateMyquizzesandNotMyQuizzes(arrayMyQuizzes, arrayNotMyQuizzes) {
-    if (myQuizzesId.length > 0) { //Se myQuizzes não for vazio ou undefined
-        allQuizzes.forEach(quiz => {
-            if(myQuizzesId.some(quiz => quiz.id === myQuizzesId.id)) {
-                arrayMyQuizzes.push(quiz);
+    if (myQuizzesId.length > 0) { //Se myQuizzes não for vazio
+        allQuizzes.forEach(searchedQuiz => {
+            if(myQuizzesId.some(quiz => quiz.id === searchedQuiz.id)) {
+                arrayMyQuizzes.push(searchedQuiz);
             } else {
-                arrayNotMyQuizzes.push(quiz);
+                arrayNotMyQuizzes.push(searchedQuiz);
             }
         });
     } else {
@@ -151,22 +154,6 @@ function renderQuizzes(adress, Quizzes) {
         container.querySelector('div:last-child').style.backgroundSize = '340px 181px';
         });
     }
-
-    Quizzes.forEach(quiz => {
-        container.innerHTML += `
-            <div data-test="others-quiz" class="quiz-card" onclick="playQuizz(${quiz.id})">
-                <h2>${quiz.title}</h2>
-            </div>
-        `;
-
-        container.querySelector('div:last-child').style.backgroundImage = `linear-gradient(
-            180deg, 
-            transparent,
-            rgba(0, 0, 0, 0.5) 65%, 
-            #000000 100%),
-            url(${quiz.image})`;
-        container.querySelector('div:last-child').style.backgroundSize = '340px 181px';
-        });
 }
 
 
@@ -224,6 +211,7 @@ function renderQuizz(question) {
 function destacarRespostaEscolhida(answerElement) {
     const isCorrect = answerElement.getAttribute('data-isCorrect');
     const escolherImagem = answerElement.parentNode;
+    answerElement.removeAttribute('onclick');
   
     if (isCorrect !== null && isCorrect !== '') {
       const isCorrectBool = JSON.parse(isCorrect);
@@ -239,7 +227,17 @@ function destacarRespostaEscolhida(answerElement) {
   
       todasAsRespostas.forEach(resposta => {
         if (resposta !== answerElement) {
-          resposta.style.pointerEvents = "none";
+          resposta.removeAttribute('onclick');
+
+          const isCorrect = resposta.getAttribute('data-isCorrect');
+          const isCorrectBool = JSON.parse(isCorrect);
+
+          if (isCorrectBool) {
+            resposta.style.color = "green";
+          } else {
+            resposta.style.color = "red";
+          }
+
           resposta.style.opacity = 0.6;
         }
       });
