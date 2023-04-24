@@ -114,10 +114,42 @@ function renderQuizzes(adress, Quizzes) {
 
     if (adress === '.tela1 .allQuizzes') {
         container.innerHTML = '<div class="container-title">Todos os Quizzes</div>';
+
+        Quizzes.forEach(quiz => {
+            container.innerHTML += `
+                <div data-test="others-quiz" class="quiz-card" onclick="playQuizz(${quiz.id})">
+                    <h2>${quiz.title}</h2>
+                </div>
+            `;
+    
+            container.querySelector('div:last-child').style.backgroundImage = `linear-gradient(
+                180deg, 
+                transparent,
+                rgba(0, 0, 0, 0.5) 65%, 
+                #000000 100%),
+                url(${quiz.image})`;
+            container.querySelector('div:last-child').style.backgroundSize = '340px 181px';
+            });
     } else {
         container.innerHTML = `<div class="container-title">Seus Quizzes 
                                     <button data-test="create-btn" onclick="makeAQuizz()"><ion-icon name="add-circle"></ion-icon></button>
                                </div>`;
+        
+        Quizzes.forEach(quiz => {
+        container.innerHTML += `
+            <div data-test="my-quiz" class="quiz-card" onclick="playQuizz(${quiz.id})">
+                <h2>${quiz.title}</h2>
+            </div>
+        `;
+
+        container.querySelector('div:last-child').style.backgroundImage = `linear-gradient(
+            180deg, 
+            transparent,
+            rgba(0, 0, 0, 0.5) 65%, 
+            #000000 100%),
+            url(${quiz.image})`;
+        container.querySelector('div:last-child').style.backgroundSize = '340px 181px';
+        });
     }
 
     Quizzes.forEach(quiz => {
