@@ -60,9 +60,7 @@ function myQuizz() {
 //////////////////////FUNÇÕES TELA 1///////////////////////////////////////////////////////
 
 function showQuizzes() {
-    showScreen(1);
     getMyQuizzes();
-
 
     /* if (myQuizzesId.length > 0) { //Se myQuizzes não for vazio ou undefined
         document.querySelector('.tela1 .myQuizzes').style.display = 'flex';
@@ -86,9 +84,11 @@ function showQuizzes() {
             renderQuizzes('.tela1 .myQuizzes', arrayMyQuizzes);
             document.querySelector('.tela1 .myQuizzes').style.display = 'flex';
             document.querySelector('.tela1 .makeAQuizz').style.display = 'none';
+            showScreen(1);
         } else {
             document.querySelector('.tela1 .myQuizzes').style.display = 'none';
             document.querySelector('.tela1 .makeAQuizz').style.display = 'flex';
+            showScreen(1);
         }
         
         renderQuizzes('.tela1 .allQuizzes', arrayNotMyQuizzes);
