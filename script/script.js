@@ -187,9 +187,9 @@ function renderQuizz(question) {
   containerPerguntas.appendChild(perguntasQuiz);
 
   for (let i = 0; i < question.answers.length; i++) {
-    const escolherImagem = document.createElement('div');
-    escolherImagem.className = 'escolherImagem';
-    containerPerguntas.appendChild(escolherImagem);
+    // const escolherImagem = document.createElement('div');
+    // escolherImagem.className = 'escolherImagem';
+    // containerPerguntas.appendChild(escolherImagem);
 
     const escolherImagemImg = document.createElement('div');
     escolherImagemImg.className = 'escolherImagem-img resposta-nSelecionada';
@@ -208,7 +208,7 @@ function renderQuizz(question) {
     imagemText.innerHTML = question.answers[i].text;
     escolherImagemImg.appendChild(imagemText);
 
-    escolherImagem.appendChild(escolherImagemImg);
+    containerPerguntas.appendChild(escolherImagemImg);
   }
 
   const titulopergunta = containerPerguntas.querySelector('.perguntas-quiz');
@@ -232,7 +232,7 @@ function destacarRespostaEscolhida(answerElement) {
         answerElement.style.color = "red";
       }
   
-      const todasAsRespostas = escolherImagem.parentNode.querySelectorAll('.escolherImagem-img');
+      const todasAsRespostas = escolherImagem.querySelectorAll('.escolherImagem-img');
   
       todasAsRespostas.forEach(resposta => {
         if (resposta !== answerElement) {
@@ -286,15 +286,16 @@ setTimeout(function() {
   
   // Função para criar o botão de reset na div 'level-container'
   function criarBotaoReset() {
-    const levelContainer = document.querySelector('.level-container');
+    const divButtons = document.createElement('div');
     
     // Cria um novo elemento button
     const resetButton = document.createElement('button');
     resetButton.classList.add('reset-button');
     resetButton.setAttribute('data-test', 'restart');
     resetButton.innerHTML = 'Resetar Quizz';
-    resetButton.addEventListener('click', resetQuizz); // Adiciona o evento de clique ao botão
-    levelContainer.appendChild(resetButton); // Adiciona o botão à div 'level-container'
+    resetButton.addEventListener('click', resetQuizz); // Adiciona o evento de clique ao 
+    resetButton.style.height = '52px';
+    divButtons.appendChild(resetButton); // Adiciona o botão à div 'level-container'
 
      // Cria um novo elemento button para voltar à home
     const homeButton = document.createElement('button');
@@ -302,7 +303,17 @@ setTimeout(function() {
     homeButton.setAttribute('data-test', 'go-home');
     homeButton.innerHTML = 'Voltar à Home';
     homeButton.addEventListener('click', showQuizzes); // Adiciona o evento de clique ao botão
-    levelContainer.appendChild(homeButton); // Adiciona o botão à div 'level-container'
+    divButtons.appendChild(homeButton); // Adiciona o botão à div 'level-container'
+
+    // stylizando
+    divButtons.style.display = 'flex';
+    divButtons.style.flexDirection = 'column';
+    divButtons.style.height = '100px';
+    divButtons.style.justifyContent = 'space-between';
+    divButtons.style.marginTop = '50px';
+
+    // Joga divButtons na tela 2
+    perguntas.appendChild(divButtons);
 }
   
   

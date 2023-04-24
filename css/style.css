@@ -362,6 +362,8 @@ main {
 
 .escolherImagem-img p {
     font-family: Roboto;
+    background-color: #FFFFFF;
+    margin-bottom: 23px;
     font-style: normal;
     font-weight: bold;
     font-size: 13px;
@@ -369,7 +371,11 @@ main {
     margin-top: 5px;
     width: 163px;
     height: auto;
-    word-break: break-all;    
+    word-break: break-all; 
+    display: flex;
+    justify-content: space-between;   
+    justify-content: center;
+    flex-wrap: wrap;   
 }
 
 
