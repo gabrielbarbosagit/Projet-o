@@ -197,9 +197,10 @@ function renderQuizz(question) {
     escolherImagemImg.setAttribute('data-isCorrect', question.answers[i].isCorrectAnswer);
     escolherImagemImg.setAttribute('onclick', 'destacarRespostaEscolhida(this)');
 
-    const imagemImg = document.createElement('div');
+    const imagemImg = document.createElement('img');
     imagemImg.className = 'imagem-img';
-    imagemImg.style.backgroundImage = `url(${question.answers[i].image})`;
+    //imagemImg.style.backgroundImage = `url(${question.answers[i].image})`;
+    imagemImg.setAttribute('src',question.answers[i].image);
     escolherImagemImg.appendChild(imagemImg);
 
     const imagemText = document.createElement('p');
@@ -296,12 +297,12 @@ setTimeout(function() {
     levelContainer.appendChild(resetButton); // Adiciona o botão à div 'level-container'
 
      // Cria um novo elemento button para voltar à home
-  const homeButton = document.createElement('button');
-  homeButton.classList.add('home-button');
-  homeButton.setAttribute('data-test', 'go-home');
-  homeButton.innerHTML = 'Voltar à Home';
-  homeButton.addEventListener('click', showQuizzes); // Adiciona o evento de clique ao botão
-  levelContainer.appendChild(homeButton); // Adiciona o botão à div 'level-container'
+    const homeButton = document.createElement('button');
+    homeButton.classList.add('home-button');
+    homeButton.setAttribute('data-test', 'go-home');
+    homeButton.innerHTML = 'Voltar à Home';
+    homeButton.addEventListener('click', showQuizzes); // Adiciona o evento de clique ao botão
+    levelContainer.appendChild(homeButton); // Adiciona o botão à div 'level-container'
 }
   
   
@@ -324,10 +325,8 @@ setTimeout(function() {
     // Encontre o level correspondente à porcentagem de acertos
     let levelEncontrado = false;
 
-    //selectedQuizz.levels.forEach(level => {
         selectedQuizz.levels.forEach((level, index) => {
             if ( (!levelEncontrado && index === selectedQuizz.levels.length - 1) || (!levelEncontrado && porcentagemAcertos < selectedQuizz.levels[index+1].minValue)) {
-        //if (!levelEncontrado && porcentagemAcertos >= level.minValue) {
             // Crie um novo elemento div para exibir os detalhes do level
             const levelContainer = document.createElement('div');
             levelContainer.className = 'level-container'; // Classe personalizada para o container do level

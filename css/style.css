@@ -264,7 +264,7 @@ main {
     width: 340px;
     text-align: center;
     justify-content: center;
-    margin-top: 2px;
+    margin-top: 10px;
     overflow-wrap: break-word;
     color: #000000;
 }
