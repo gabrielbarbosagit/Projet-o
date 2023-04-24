@@ -63,13 +63,14 @@ function showQuizzes() {
     showScreen(1);
     getMyQuizzes();
 
-    if (myQuizzesId.length > 0) { //Se myQuizzes não for vazio ou undefined
+
+    /* if (myQuizzesId.length > 0) { //Se myQuizzes não for vazio ou undefined
         document.querySelector('.tela1 .myQuizzes').style.display = 'flex';
         document.querySelector('.tela1 .makeAQuizz').style.display = 'none';
     } else {
         document.querySelector('.tela1 .myQuizzes').style.display = 'none';
         document.querySelector('.tela1 .makeAQuizz').style.display = 'flex';
-    }
+    } */
 
     const promise = getAllQuizzes();
     promise.then(response => {
@@ -81,8 +82,13 @@ function showQuizzes() {
         [arrayMyQuizzes, arrayNotMyQuizzes] = separateMyquizzesandNotMyQuizzes(arrayMyQuizzes, arrayNotMyQuizzes);
         console.log(arrayMyQuizzes);
 
-        if (myQuizzesId.length > 0) { //Se myQuizzes não for vazio
+        if (arrayMyQuizzes.length > 0) { //Se myQuizzes não for vazio
             renderQuizzes('.tela1 .myQuizzes', arrayMyQuizzes);
+            document.querySelector('.tela1 .myQuizzes').style.display = 'flex';
+            document.querySelector('.tela1 .makeAQuizz').style.display = 'none';
+        } else {
+            document.querySelector('.tela1 .myQuizzes').style.display = 'none';
+            document.querySelector('.tela1 .makeAQuizz').style.display = 'flex';
         }
         
         renderQuizzes('.tela1 .allQuizzes', arrayNotMyQuizzes);
@@ -121,6 +127,7 @@ function renderQuizzes(adress, Quizzes) {
         Quizzes.forEach(quiz => {
             container.innerHTML += `
                 <div data-test="others-quiz" class="quiz-card" onclick="playQuizz(${quiz.id})">
+                    <img data-test="my-quiz" class="" src="${quiz.image}" alt="">
                     <h2>${quiz.title}</h2>
                 </div>
             `;
@@ -140,7 +147,8 @@ function renderQuizzes(adress, Quizzes) {
         
         Quizzes.forEach(quiz => {
         container.innerHTML += `
-            <div data-test="my-quiz" class="quiz-card" onclick="playQuizz(${quiz.id})">
+            <div class="quiz-card" onclick="playQuizz(${quiz.id})">
+                <img data-test="my-quiz" class="" src="${quiz.image}" alt="">
                 <h2>${quiz.title}</h2>
             </div>
         `;
