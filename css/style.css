@@ -274,6 +274,10 @@ main {
     align-items: center;
 }
 
+.tela3 button:hover{
+    cursor: pointer;
+}
+
 .infoQuizz, .perguntasQuizz, .niveisQuizz, .sucessoQuizz {
     display: flex;
     flex-direction: column;
@@ -327,32 +331,14 @@ main {
     color: #BABABA;    
 }
 
-.infosCriarPergunta {
+.infosCriarPerguntas {
     width: 375px;
-    height: 755px;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 29px 0;
     padding: 20px 0;   
-}
-
-.infosCriarPergunta input {
-    width: 341px;
-    height: 46px;
-    border: 1px solid #D1D1D1;
-    border-radius: 5px;
-    margin-bottom: 9px;
-    background-color: #FFFFFF;
-    font-size: 19px;
-    padding-left: 14px;
-}
-
-.infosCriarPergunta input::placeholder {
-    font-style: italic;
-    font-size: 19px;
-    color: #BABABA;
 }
 
 .p1 {
@@ -372,48 +358,12 @@ main {
 
 .infosNiveis {
     width: 375px;
-    height: 439px;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 29px 0;
     padding: 20px 0;   
-}
-
-.infosNiveis input {
-    width: 341px;
-    height: 46px;
-    border: 1px solid #D1D1D1;
-    border-radius: 5px;
-    margin-bottom: 9px;
-    background-color: #FFFFFF;
-    font-size: 19px;
-    padding-left: 14px;
-}
-
-.infosNiveis input::placeholder {
-    font-style: italic;
-    font-size: 19px;
-    color: #BABABA;
-}
-
-.infosNiveis textarea {
-    width: 341px;
-    height: 177px;
-    border: 1px solid #D1D1D1;
-    border-radius: 5px;
-    margin-bottom: 9px;
-    background-color: #FFFFFF;
-    font-size: 19px;
-    padding-left: 14px;
-    padding-top: 13px;
-}
-
-.infosNiveis textarea::placeholder {
-    font-style: italic;
-    font-size: 19px;
-    color: #BABABA;
 }
 
 .p2 {
@@ -455,6 +405,92 @@ main {
     background: none;
 }
 
+.accordion {
+    width: 375px;
+    margin-bottom: 24px;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #FFFFFF;
+    font-size: 19px;
+}
+
+.accordion p {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 14px 0 10px;
+}
+
+.accordion_label {
+    padding: 14px 20px;
+}
+
+.accordion_content {
+    padding: 5px 20px 14px;
+}
+
+.accordion_label {
+    width: 340px;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.1s;
+    background-image: url('../imagens/edit.png');
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: 50%;
+}
+
+.accordion_content {
+    line-height: 1.6;
+    font-size: 0.85em;
+    display: none;
+}
+
+.accordion_content input {
+    height: 46px;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    margin-bottom: 9px;
+    background-color: #FFFFFF;
+    font-size: 19px;
+    padding-left: 14px;
+}
+
+.accordion_content input::placeholder {
+    font-style: italic;
+    font-size: 19px;
+    color: #BABABA;
+}
+
+.accordion_content textarea {
+    height: 177px;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    margin-bottom: 9px;
+    background-color: #FFFFFF;
+    font-size: 19px;
+    padding-left: 14px;
+    padding-top: 13px;
+}
+
+.accordion_content textarea::placeholder {
+    font-style: italic;
+    font-size: 19px;
+    color: #BABABA;
+}
+
+.accordion_input {
+    display: none;
+}
+
+.accordion_input:checked ~ .accordion_content {
+    display: block;
+}
+
+.accordion_input:checked ~ .accordion_label {
+    background-image: none;
+}
+
 @media (min-width: 1100px) {
     .prosseguirCriarPerguntas, .prosseguirCriarNiveis, .finalizarQuizz, .acessarQuizz {
         width: 368px;
@@ -462,27 +498,23 @@ main {
     }
 
     .infosBasicas {
-        width: 600px;
-        height: 256px;  
+        width: 600px; 
     }
 
-    .infosCriarPergunta {
+    .infosCriarPerguntas {
         width: 600px;
-        height: 825px;
+    }
+
+    .accordion, .accordion_label {
+        width: 600px;
+    }
+
+    .accordion_content textarea {
+        height: 36px;
     }
 
     .infosNiveis {
         width: 600px;
-        height: 316px;
-    }
-
-    .infosBasicas input, .infosCriarPergunta input, .infosNiveis input, .infosNiveis textarea {
-        width: 564px;
-        height: 46px;
-    }
-
-    .infosNiveis textarea {
-        height: 32px;
     }
 
     .quizzPronto img {
