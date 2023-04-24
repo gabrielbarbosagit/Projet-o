@@ -55,6 +55,12 @@ function myQuizz() {
         window.location.reload();        
     })   
 }
+
+function getById(id) {
+    const promise = axios.get(`https://mock-api.driven.com.br/api/vm/buzzquizz/quizzes/${id}`);
+
+    return promise;
+}
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////FUNÇÕES TELA 1///////////////////////////////////////////////////////
@@ -357,32 +363,39 @@ setTimeout(function() {
   }
 
 
-  function playQuizz(quizzSelecionado) {
+  function playQuizz(idQuizzSelecionado) {
     // Rolando a página para o topo
     window.scrollTo(0, 0);
 
-    selectedQuizz = allQuizzes.find(quiz => quiz.id === quizzSelecionado);
-    console.log(selectedQuizz);
-  
-    const quizResultElement = document.getElementById('quizResult');
-    if (quizResultElement) { 
-        quizResultElement.innerHTML = `        
-        <div data-test="banner" class="header-pergunta" ><span>${selectedQuizz.title}</span></div> 
-        `;
-    }
-
-    quizResultElement.querySelector('.header-pergunta').style.backgroundImage = `url(${selectedQuizz.image})`;
-    const sectionPerguntas = quizResultElement.querySelector('.container-perguntas');
-
-    /* RANDOMIZA AS ALTERNATIVAS DAS QUESTOES */
-    for(i = 0; i < selectedQuizz.questions.length; i++){
-        selectedQuizz.questions[i].answers = selectedQuizz.questions[i].answers.sort(() => Math.random() - 0.5);
-    }
+    const promise = getById(idQuizzSelecionado);
+    promise.then(response => {
+        selectedQuizz = response.data;
+        const quizResultElement = document.getElementById('quizResult');
+        if (quizResultElement) { 
+            quizResultElement.innerHTML = `        
+            <div data-test="banner" class="header-pergunta" ><span>${selectedQuizz.title}</span></div> 
+            `;
+        }
     
+        quizResultElement.querySelector('.header-pergunta').style.backgroundImage = `url(${selectedQuizz.image})`;
+        const sectionPerguntas = quizResultElement.querySelector('.container-perguntas');
     
-    selectedQuizz.questions.forEach(renderQuizz)
+        /* RANDOMIZA AS ALTERNATIVAS DAS QUESTOES */
+        for(i = 0; i < selectedQuizz.questions.length; i++){
+            selectedQuizz.questions[i].answers = selectedQuizz.questions[i].answers.sort(() => Math.random() - 0.5);
+        }
+        
+        
+        selectedQuizz.questions.forEach(renderQuizz)
+    
+        showScreen(2);
+    }).catch(error => {
+        alert(`Erro ao tentar acessar o servidor\n
+              ${error.status}\n
+              ${error.statusMessage}`);
 
-    showScreen(2);
+        window.location.reload();
+    })
 }
 
 ///////////////////////////////////FUNÇÕES TELA 3/////////////////////////////////////////
