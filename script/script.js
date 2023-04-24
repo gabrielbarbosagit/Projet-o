@@ -15,7 +15,7 @@ function showScreen(n) {
     } else if (n === 2) {
         document.querySelector('.tela1').style.display = 'none';
         document.querySelector('.tela2').style.display = 'flex';
-        //document.querySelector('.tela3').style.display = 'none';
+        document.querySelector('.tela3').style.display = 'none';
     } else {
         document.querySelector('.tela1').style.display = 'none';
         document.querySelector('.tela2').style.display = 'none';
@@ -51,8 +51,7 @@ function myQuizz() {
               ${error.status}\n
               ${error.statusMessage}`);
 
-        window.location.reload();
-        
+        window.location.reload();        
     })   
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -63,7 +62,7 @@ function showQuizzes() {
     showScreen(1);
     getMyQuizzes();
 
-    if (myQuizzes) { //Se myQuizzes não for vazio ou undefined
+    if (myQuizzesId) { //Se myQuizzes não for vazio ou undefined
         document.querySelector('.tela1 .myQuizzes').style.display = 'flex';
         document.querySelector('.tela1 .makeAQuizz').style.display = 'none';
     } else {
@@ -79,7 +78,7 @@ function showQuizzes() {
         let arrayNotMyQuizzes = [];
         [arrayMyQuizzes, arrayNotMyQuizzes] = separateMyquizzesandNotMyQuizzes(arrayMyQuizzes, arrayNotMyQuizzes);
 
-        if (myQuizzes) { //Se myQuizzes não for vazio ou undefined
+        if (myQuizzesId) { //Se myQuizzes não for vazio ou undefined
             renderQuizzes('.tela1 .myQuizzes', arrayMyQuizzes);
         }
         
@@ -95,9 +94,9 @@ function showQuizzes() {
 }
 
 function separateMyquizzesandNotMyQuizzes(arrayMyQuizzes, arrayNotMyQuizzes) {
-    if (myQuizzes) { //Se myQuizzes não for vazio ou undefined
+    if (myQuizzesId) { //Se myQuizzes não for vazio ou undefined
         allQuizzes.forEach(quiz => {
-            if(myQuizzes.some(myQuizId => quiz.id === myQuizId.id)) {
+            if(myQuizzesId.some(myQuizId => quiz.id === myQuizId.id)) {
                 arrayMyQuizzes.push(quiz);
             } else {
                 arrayNotMyQuizzes.push(quiz);
@@ -117,13 +116,13 @@ function renderQuizzes(adress, Quizzes) {
         container.innerHTML = '<div class="container-title">Todos os Quizzes</div>';
     } else {
         container.innerHTML = `<div class="container-title">Seus Quizzes 
-                                    <button onclick="makeAQuizz()"><ion-icon name="add-circle"></ion-icon></button>
+                                    <button data-test="create-btn" onclick="makeAQuizz()"><ion-icon name="add-circle"></ion-icon></button>
                                </div>`;
     }
 
     Quizzes.forEach(quiz => {
         container.innerHTML += `
-            <div class="quiz-card" onclick="playQuizz(${quiz.id})">
+            <div data-test="others-quiz" class="quiz-card" onclick="playQuizz(${quiz.id})">
                 <h2>${quiz.title}</h2>
             </div>
         `;
@@ -147,6 +146,8 @@ let totalAcertos = 0;
 let perguntasRespondidas = 0;
 const perguntas = document.getElementById('quizResult');
 
+
+
 function renderQuizz(question) {
   const containerPerguntas = document.createElement('div');
   containerPerguntas.className = 'container-perguntas';
@@ -154,6 +155,7 @@ function renderQuizz(question) {
 
   const perguntasQuiz = document.createElement('div');
   perguntasQuiz.className = 'perguntas-quiz';
+  perguntasQuiz.setAttribute('data-test', 'question-title');
   perguntasQuiz.innerHTML = question.title;
   containerPerguntas.appendChild(perguntasQuiz);
 
@@ -174,6 +176,7 @@ function renderQuizz(question) {
     escolherImagemImg.appendChild(imagemImg);
 
     const imagemText = document.createElement('p');
+    imagemText.setAttribute('data-test', 'answer-text');
     imagemText.innerHTML = question.answers[i].text;
     escolherImagemImg.appendChild(imagemText);
 
@@ -249,6 +252,7 @@ setTimeout(function() {
     // Cria um novo elemento button
     const resetButton = document.createElement('button');
     resetButton.classList.add('reset-button');
+    resetButton.setAttribute('data-test', 'restart');
     resetButton.innerHTML = 'Resetar Quizz';
     resetButton.addEventListener('click', resetQuizz); // Adiciona o evento de clique ao botão
     levelContainer.appendChild(resetButton); // Adiciona o botão à div 'level-container'
@@ -256,6 +260,7 @@ setTimeout(function() {
      // Cria um novo elemento button para voltar à home
   const homeButton = document.createElement('button');
   homeButton.classList.add('home-button');
+  homeButton.setAttribute('data-test', 'go-home');
   homeButton.innerHTML = 'Voltar à Home';
   homeButton.addEventListener('click', showQuizzes); // Adiciona o evento de clique ao botão
   levelContainer.appendChild(homeButton); // Adiciona o botão à div 'level-container'
@@ -293,6 +298,7 @@ setTimeout(function() {
             const levelTitle = document.createElement('div');
             levelTitle.innerHTML = `${porcentagemAcertosArredondada}% de acerto:${level.title}`;
             levelTitle.className = 'level-title'; // Classe personalizada para o título do level
+            levelTitle.setAttribute('data-test', 'level-title');
             levelContainer.appendChild(levelTitle);
 
             // Crie um novo elemento img para exibir a imagem do level
@@ -300,12 +306,14 @@ setTimeout(function() {
             levelImage.src = level.image;
             levelImage.alt = `${level.title}`;
             levelImage.className = 'level-image'; // Classe personalizada para a imagem do level
+            levelImage.setAttribute('data-test', 'level-img');
             levelContainer.appendChild(levelImage);
 
             // Crie um novo elemento div para exibir o texto do level
             const levelText = document.createElement('div');
             levelText.innerHTML = `${level.text}`;
             levelText.className = 'level-text'; // Classe personalizada para o texto do level
+            levelText.setAttribute('data-test', 'level-text');
             levelContainer.appendChild(levelText);
 
             resultadoContainer.appendChild(levelContainer);
@@ -328,33 +336,25 @@ setTimeout(function() {
     const quizResultElement = document.getElementById('quizResult');
     if (quizResultElement) { 
         quizResultElement.innerHTML = `        
-        <div class="header-pergunta" ><span>${selectedQuizz.title}</span></div> 
+        <div data-test="banner" class="header-pergunta" ><span>${selectedQuizz.title}</span></div> 
         `;
     }
 
     quizResultElement.querySelector('.header-pergunta').style.backgroundImage = `url(${selectedQuizz.image})`;
     const sectionPerguntas = quizResultElement.querySelector('.container-perguntas');
+
+    /* RANDOMIZA AS ALTERNATIVAS DAS QUESTOES */
+    for(i = 0; i < selectedQuizz.questions.length; i++){
+        selectedQuizz.questions[i].answers = selectedQuizz.questions[i].answers.sort(() => Math.random() - 0.5);
+    }
+    
+    
     selectedQuizz.questions.forEach(renderQuizz)
 
     showScreen(2);
 }
 
-
-
-    
-     
-
-
-
-/* FUNÇÕES TELA 3 */
-//////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////
-
 ///////////////////////////////////FUNÇÕES TELA 3/////////////////////////////////////////
-
 
 function makeAQuizz() {
     showScreen(3);
@@ -951,11 +951,6 @@ function prossegueFinalizarQuizz() {
         promise.catch(resposta => console.log(resposta));    
 }
 
-/* function myQuizz() {
-    let id = myQuizzesId[myQuizzesId.length - 1].id;
-    playQuizz(id);
-} */
-
 function acessarQuizz() {
     myQuizz();
 } 
@@ -963,6 +958,18 @@ function acessarQuizz() {
 function voltarHome() {
     const paginaAnterior = document.querySelector('.sucessoQuizz');
     paginaAnterior.classList.add('esconde-tela')
+
+    /* ATUALIZA QUIZES */
+    const promise = axios.get('https://mock-api.driven.com.br/api/vm/buzzquizz/quizzes');
+    promise.then(response => {
+        allQuizzes = response.data;
+    }).catch(error => {
+        alert(`Erro ao tentar acessar o servidor\n
+              ${error.status}\n
+              ${error.statusMessage}`);
+
+        window.location.reload();        
+    })
 
     showQuizzes();
 }
