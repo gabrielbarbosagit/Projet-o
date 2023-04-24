@@ -208,13 +208,10 @@ main {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
     margin-top: 28px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     scroll-margin: 60px;
-    flex-wrap: wrap;
-    
-   
+    flex-wrap: wrap;  
 }
 
 .level-container {
@@ -259,7 +256,7 @@ main {
     justify-content: center;
     margin-top: 2px;
     overflow-wrap: break-word;
-    color: #FFFFFF;
+    color: #000000;
 }
 
 
@@ -329,7 +326,6 @@ main {
 }
 
 .escolherImagem {
-    width: 338px;
     height: auto;
     background-color: #FFFFFF;
     margin-bottom: 23px;
@@ -337,7 +333,6 @@ main {
     justify-content: space-between;   
     justify-content: center;
     flex-wrap: wrap;
-  
 }
 
 
@@ -351,9 +346,7 @@ main {
     opacity: 1;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    
-    
+    flex-wrap: wrap;    
 }
 
 

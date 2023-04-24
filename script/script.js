@@ -5,10 +5,6 @@ let myQuizzes;
 let myQuizzesId = [];
 let selectedQuizz;
 
-
-showQuizzes();
-
-
 /////////////////////////////FUNÇÕES GERAIS/////////////////////////////////////////////////
 
 function showScreen(n) {
@@ -18,8 +14,8 @@ function showScreen(n) {
         document.querySelector('.tela3').style.display = 'none';
     } else if (n === 2) {
         document.querySelector('.tela1').style.display = 'none';
-        document.querySelector('.tela2').style.display = '';
-        document.querySelector('.tela3').style.display = 'none';
+        document.querySelector('.tela2').style.display = 'flex';
+        //document.querySelector('.tela3').style.display = 'none';
     } else {
         document.querySelector('.tela1').style.display = 'none';
         document.querySelector('.tela2').style.display = 'none';
@@ -38,6 +34,26 @@ function getMyQuizzes() {
     if(myQuizzesId === null) {
         myQuizzesId = [];
     }
+}
+
+function myQuizz() {
+    const paginaAnterior = document.querySelector('.sucessoQuizz');
+    paginaAnterior.classList.add('esconde-tela')
+
+    let id = myQuizzesId[myQuizzesId.length - 1].id;
+
+    const promise = axios.get('https://mock-api.driven.com.br/api/vm/buzzquizz/quizzes');
+    promise.then(response => {
+        allQuizzes = response.data;
+        playQuizz(id);
+    }).catch(error => {
+        alert(`Erro ao tentar acessar o servidor\n
+              ${error.status}\n
+              ${error.statusMessage}`);
+
+        window.location.reload();
+        
+    })   
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -215,8 +231,7 @@ setTimeout(function() {
   }, 2000); // 2 segundos de atraso (2000 milissegundos)
   
 }
-  }
-  
+  } 
 
 
   function resetQuizz() {
@@ -265,8 +280,11 @@ setTimeout(function() {
 
     // Encontre o level correspondente à porcentagem de acertos
     let levelEncontrado = false;
-    selectedQuizz.levels.forEach(level => {
-        if (!levelEncontrado && porcentagemAcertos >= level.minValue) {
+
+    //selectedQuizz.levels.forEach(level => {
+        selectedQuizz.levels.forEach((level, index) => {
+            if ( (!levelEncontrado && index === selectedQuizz.levels.length - 1) || (!levelEncontrado && porcentagemAcertos < selectedQuizz.levels[index+1].minValue)) {
+        //if (!levelEncontrado && porcentagemAcertos >= level.minValue) {
             // Crie um novo elemento div para exibir os detalhes do level
             const levelContainer = document.createElement('div');
             levelContainer.className = 'level-container'; // Classe personalizada para o container do level
@@ -303,7 +321,7 @@ setTimeout(function() {
   function playQuizz(quizzSelecionado) {
     // Rolando a página para o topo
     window.scrollTo(0, 0);
-  
+
     selectedQuizz = allQuizzes.find(quiz => quiz.id === quizzSelecionado);
     console.log(selectedQuizz);
   
@@ -337,8 +355,11 @@ setTimeout(function() {
 
 ///////////////////////////////////FUNÇÕES TELA 3/////////////////////////////////////////
 
+
 function makeAQuizz() {
     showScreen(3);
+    const paginaAnterior = document.querySelector('.infoQuizz');
+    paginaAnterior.classList.remove('esconde-tela');
 }
 
 let qtdNiveis;
@@ -930,18 +951,12 @@ function prossegueFinalizarQuizz() {
         promise.catch(resposta => console.log(resposta));    
 }
 
-function myQuizz() {
+/* function myQuizz() {
     let id = myQuizzesId[myQuizzesId.length - 1].id;
     playQuizz(id);
-}
+} */
 
 function acessarQuizz() {
-    const paginaAnterior = document.querySelector('.sucessoQuizz');
-    paginaAnterior.classList.add('esconde-tela')
-
-    const proximaPagina = document.querySelector('.infoQuizz');
-    proximaPagina.classList.remove('esconde-tela')
-
     myQuizz();
 } 
 
@@ -949,10 +964,11 @@ function voltarHome() {
     const paginaAnterior = document.querySelector('.sucessoQuizz');
     paginaAnterior.classList.add('esconde-tela')
 
-    const proximaPagina = document.querySelector('.infoQuizz');
-    proximaPagina.classList.remove('esconde-tela')
-
     showQuizzes();
 }
 
 ///////////////////////////////////FIM FUNÇÕES TELA 3/////////////////////////////////////////
+
+
+/* STARTA QUIZ */
+showQuizzes();
