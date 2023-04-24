@@ -752,21 +752,21 @@ function prossegueCriarNiveis() {
         }
 
         if(respostaIncorreta1 && urlRespostaIncorreta1) {
-            if(!((urlRespostaIncorreta1.includes('http://')) || (url.includes('https://')))) {
+            if(!((urlRespostaIncorreta1.includes('http://')) || (urlRespostaIncorreta1.includes('https://')))) {
                 return alert(`A URL da Resposta incorreta 1 da Pergunta ${i} não é válida!\nPor gentileza insira uma URL válida.\nEx: http://www.exemplo.com`);
             }
             qtdRespostasIncorretas++;
         }
 
         if(respostaIncorreta2 && urlRespostaIncorreta2) {
-            if(!((urlRespostaIncorreta2.includes('http://')) || (url.includes('https://')))) {
+            if(!((urlRespostaIncorreta2.includes('http://')) || (urlRespostaIncorreta2.includes('https://')))) {
                 return alert(`A URL da Resposta incorreta 2 da Pergunta ${i} não é válida!\nPor gentileza insira uma URL válida.\nEx: http://www.exemplo.com`);
             }
             qtdRespostasIncorretas++;
         }
 
         if(respostaIncorreta3 && urlRespostaIncorreta3) {
-            if(!((urlRespostaIncorreta3.includes('http://')) || (url.includes('https://')))) {
+            if(!((urlRespostaIncorreta3.includes('http://')) || (urlRespostaIncorreta3.includes('https://')))) {
                 return alert(`A URL da Resposta incorreta 3 da Pergunta ${i} não é válida!\nPor gentileza insira uma URL válida.\nEx: http://www.exemplo.com`);
             }
             qtdRespostasIncorretas++;
