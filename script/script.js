@@ -60,15 +60,8 @@ function myQuizz() {
 //////////////////////FUNÇÕES TELA 1///////////////////////////////////////////////////////
 
 function showQuizzes() {
+    
     getMyQuizzes();
-
-    /* if (myQuizzesId.length > 0) { //Se myQuizzes não for vazio ou undefined
-        document.querySelector('.tela1 .myQuizzes').style.display = 'flex';
-        document.querySelector('.tela1 .makeAQuizz').style.display = 'none';
-    } else {
-        document.querySelector('.tela1 .myQuizzes').style.display = 'none';
-        document.querySelector('.tela1 .makeAQuizz').style.display = 'flex';
-    } */
 
     const promise = getAllQuizzes();
     promise.then(response => {
@@ -127,7 +120,6 @@ function renderQuizzes(adress, Quizzes) {
         Quizzes.forEach(quiz => {
             container.innerHTML += `
                 <div data-test="others-quiz" class="quiz-card" onclick="playQuizz(${quiz.id})">
-                    <img data-test="my-quiz" class="" src="${quiz.image}" alt="">
                     <h2>${quiz.title}</h2>
                 </div>
             `;
@@ -147,8 +139,7 @@ function renderQuizzes(adress, Quizzes) {
         
         Quizzes.forEach(quiz => {
         container.innerHTML += `
-            <div class="quiz-card" onclick="playQuizz(${quiz.id})">
-                <img data-test="my-quiz" class="" src="${quiz.image}" alt="">
+            <div data-test="my-quiz" class="quiz-card" onclick="playQuizz(${quiz.id})">
                 <h2>${quiz.title}</h2>
             </div>
         `;
