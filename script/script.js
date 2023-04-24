@@ -622,7 +622,7 @@ function prossegueCriarPerguntas() {
                         <input data-test="wrong-answer-input" class="resposta_incorreta2_pergunta${i+1}" type="text" placeholder="Resposta incorreta 2">
                         <input data-test="wrong-img-input" class="url_resposta_incorreta2_pergunta${i+1}" type="text" placeholder="URL da imagem 2">
                         <p></p>
-                        <input data-test="wrong-answer-input" class="resposta_incorreta3_pergunta${i+1}" type="text" placeholder="Resposta incorreta 3">
+                        <input data-test="wro ng-answer-input" class="resposta_incorreta3_pergunta${i+1}" type="text" placeholder="Resposta incorreta 3">
                         <input data-test="wrong-img-input" class="url_resposta_incorreta3_pergunta${i+1}" type="text" placeholder="URL da imagem 3">
                     </div>  
                 </div>
